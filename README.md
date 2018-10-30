@@ -30,5 +30,8 @@ In addition to the above requirements, we want you to choose at *least* one more
    * Pause/Play
    * Speed up/slow down playback
 
+## Submission
+Please fork this repo with the fork button on the main page, and commit and push up your code to your personal fork of this repo.
+
 ## Timeline
 We expect you to take somewhere between 2-4 hours to complete this and would love to see your project within a week of us sending this request to you.  If you need more time because you want to go above and beyond, or if you are just needing more time for any reason, just reach out and let us know.
