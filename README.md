@@ -30,4 +30,4 @@ In addition to the above requirements, we want you to choose at *least* one more
    * Speed up/slow down playback
 
 ## Timeline
-We would love to see your project within a week of us sending this request to you.  If you need more time because you want to go above and beyond, or if you are just needing more time for any reason, just reach out and let us know.
+We expect you to take somewhere between 2-4 hours to complete this and would love to see your project within a week of us sending this request to you.  If you need more time because you want to go above and beyond, or if you are just needing more time for any reason, just reach out and let us know.
