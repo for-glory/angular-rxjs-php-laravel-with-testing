@@ -23,6 +23,7 @@ In addition to the above requirements, we want you to choose at *least* one more
 * Add a way to add a title, description and tags to a file and have those changes persist.  Allow for filtering the list of files with search terms that can match these new fields.
 * Use S3 or some other cloud-based storage for the files
 * In addition to `mp4` and `jpg`, support `pdf` files, including the ability to render and preview them
+* use a responsive layout that works and looks great on desktops and mobile devices
 * Add player controls when previewing `mp4` files.  Include controls that allow for:
    * Skipping forward and back 10 seconds
    * Pause/Play
