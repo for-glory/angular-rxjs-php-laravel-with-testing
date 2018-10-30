@@ -7,7 +7,7 @@ We do a lot with media and files at GoReact, so we'd like you to build a simple 
 
 * Allow uploading and persisting `.jpg` and `.mp4` files
 * Show a UI where users can upload new files, and show the list of files uploaded so far
-* A way to "preview" the uploaded files.  For images, we want to see the image, and for mp4's, play the video.
+* Provide a way to "preview" the uploaded files.  For images, we want to see the image, and for mp4's, play the video.
 
 Your project should include a `README` that explains how to run it, set it up and run any tests if you have them, etc.
 
