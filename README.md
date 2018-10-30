@@ -29,6 +29,7 @@ In addition to the above requirements, we want you to choose at *least* one more
    * Skipping forward and back 10 seconds
    * Pause/Play
    * Speed up/slow down playback
+* Have a cool idea not on this list? Go ahead and do it but let us know what you decided to do!
 
 ## Submission
 Please fork this repo with the fork button on the main page, and commit and push up your code to your personal fork of this repo.
