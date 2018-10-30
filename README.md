@@ -21,7 +21,7 @@ In addition to the above requirements, we want you to choose at *least* one more
 * Write tests for your code, and document a way to run them
 * Add a login mechanism, and allow each user to have their own list of files
 * Add a way to add a title, description and tags to a file and have those changes persist.  Allow for filtering the list of files with search terms that can match these new fields.
-* Use S3 or some other cloud based storage for the files
+* Use S3 or some other cloud-based storage for the files
 * In addition to `mp4` and `jpg`, support `pdf` files, including the ability to render and preview them
 * Add player controls when previewing `mp4` files.  Include controls that allow for:
    * Skipping forward and back 10 seconds
