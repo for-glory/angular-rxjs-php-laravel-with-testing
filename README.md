@@ -10,7 +10,7 @@ We do a lot with media and files at GoReact, so we'd like you to build a simple 
 * Provide a way to "preview" the uploaded files.  For images, we want to see the image, and for mp4's, play the video
 * Write basic tests for your code, and document a way to run them
 
-GoReact is built using PHP 7.1 with Laravel as the web framework.  On the front-end we use webpack, TypeScript and angularjs.  Again, you are free to build your project with whatever you want.  Just make sure your README is clear and don't assume we have things installed on our computers.  We will be cloning your repo and running it on our machines.  If you are comfortable, using something like Docker or Vagrant is a good idea to make it easy for others to run your project.
+GoReact is built using PHP 7.1 with Laravel as the web framework.  On the front-end we use webpack, TypeScript and angularjs.  Again, you are free to build your project with whatever you want.  Just make sure your README is clear and don't assume we have your tools installed on our computers.  If we need any CLI tools, databases, etc, please be explicit in how we set that up.  We will be cloning your repo and running it on our machines.  If you are comfortable, using something like Docker or Vagrant is a good idea to make it easy for others to run your project.
 
 Your project should include a `README` that explains how to run it, set it up and run any tests etc.
 
