@@ -12,7 +12,7 @@ We do a lot with media and files at GoReact, so we'd like you to build a simple 
 
 GoReact is built using PHP 7.2 with Laravel as the web framework.  On the front-end we use Webpack, TypeScript and angularjs. You are free to build your project with whatever you want, but we suggest using PHP with a Laravel backend.
 
-Your project should include a `README` that explains how to set it up and run it, as well as how to execute your tests.
+Your project should include a `README` that explains how to setup and run your project, as well as how to execute your tests.
 
 **MAKE SURE YOU TEST YOUR INSTRUCTIONS YOURSELF**.
 
