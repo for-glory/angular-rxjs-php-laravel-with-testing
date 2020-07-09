@@ -1,6 +1,6 @@
 # applicant-project
 
-Thanks for applying to GoReact! To help us learn more about you and give you an opportunity to show us your stuff, we'd like you to build a simple web application.  We will go over the requirements for what this web application needs to do, but you are free to write it using any tools/technologies/frameworks/languages/whatever you want.  We don't care.  We want to see how you think, solve problems and build solutions.
+Thanks for applying to GoReact! To help us learn more about you and give you an opportunity to show us your stuff, we'd like you to build a simple web application.  We will go over the requirements for what this web application needs to do, but you are free to write it using any tools/technologies/frameworks/languages/whatever you want.  We would encourage you to build it using the technologies we use at GoReact, but if you are uncomfortable with that the burden is on you to make your project easy for us to run.  We want to see how you think, solve problems and build solutions.
 
 ## The Project
 We do a lot with media and files at GoReact, so we'd like you to build a simple file manager app.  We only want to see a few things from this app:
@@ -10,9 +10,9 @@ We do a lot with media and files at GoReact, so we'd like you to build a simple 
 * Provide a way to "preview" the uploaded files.  For images, we want to see the image, and for mp4's, play the video
 * Write basic tests for your code, and document a way to run them
 
-GoReact is built using PHP 7.1 with Laravel as the web framework.  On the front-end we use webpack, TypeScript and angularjs.  Again, you are free to build your project with whatever you want.  Just make sure your README is clear and don't assume we have your tools installed on our computers.  If we need any CLI tools, databases, etc, please be explicit in how we set that up.  We will be cloning your repo and running it on our machines.  If you are comfortable, using something like Docker or Vagrant is a good idea to make it easy for others to run your project.
+GoReact is built using PHP 7.2 with Laravel as the web framework.  On the front-end we use Webpack, TypeScript and angularjs. You are free to build your project with whatever you want, but we suggest using PHP with a Laravel backend.
 
-Your project should include a `README` that explains how to run it, set it up and run any tests etc.
+Your project should include a `README` that explains how to set it up and run it, as well as how to execute your tests.
 
 **MAKE SURE YOU TEST YOUR INSTRUCTIONS YOURSELF**.
 
@@ -34,7 +34,11 @@ In addition to the above requirements, we want you to choose at *least* one more
 * Have a cool idea not on this list? Go ahead and do it but let us know what you decided to do!
 
 ## Submission
-Please create a project in GitHub or your online repository of choice and share it with us.
+1. Send us a link to the code you have written (GitHub, GitLab, BitBucket, etc)
+2. Give us a way to play with your web application in 1 of 3 ways:
+* Host your code online and send us a link to where we can see it
+* Setup your project with Docker so we have an easy cross-platform way to run it on our machine (your README needs the setup instructions)
+* Less preferrably, record yourself demo-ing your project where you walk us through all the functionality, including running your tests.
 
 ## Timeline
-We expect you to take somewhere between 2-4 hours to complete this and would love to see your project within a week of us sending this request to you.  If you need more time because you want to go above and beyond, or if you are just needing more time for any reason, just reach out and let us know.
+We expect you to take somewhere between 2-4 hours to complete this and would love to see your project within 3 days of us sending this request to you.  If you need more time because you want to go above and beyond, or if you are just needing more time, just reach out and let us know why.
