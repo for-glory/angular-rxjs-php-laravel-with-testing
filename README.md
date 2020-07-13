@@ -35,7 +35,7 @@ In addition to the above requirements, we want you to choose at *least* one more
 
 ## Submission
 1. Send us a link to the code you have written (GitHub, GitLab, BitBucket, etc)
-2. Record yourself demo-ing your project where you walk us through all the functionality, including running your tests.
+2. Record yourself demo-ing your project where you walk us through all the functionality, including running your tests, and provide us a link to this demo video.
 
 ## Timeline
 We expect you to take somewhere between 2-4 hours to complete this and would love to see your project within 3 days of us sending this request to you.  If you need more time because you want to go above and beyond, or if you are just needing more time, just reach out and let us know why.
