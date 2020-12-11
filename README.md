@@ -8,7 +8,9 @@ We do a lot with media and files at GoReact, so we'd like you to build a simple 
 * Allow uploading and persisting `.jpg` and `.mp4` files
 * Show a UI where users can upload new files, and show the list of files uploaded so far
 * Provide a way to "preview" the uploaded files.  For images, we want to see the image, and for mp4's, play the video
-* Write basic tests for your code, and document a way to run them
+
+## Tests
+* We do lots and lots of unit, integration, API and end-to-end testing at GoReact. We have a robust automated testing and deployment pipeline. We expect you to write tests for your code in the project. Both for the front end and back end. If you've never written tests before, now is a great time to learn. If you are going to write code at all, it's important to make sure it will continue to work as the code evolves. This is what tests are for. If you don't like writing tests for your work, you may not like working at GoReact as we are required to write tests that fully cover all code that gets merged into our code base.
 
 GoReact is built using PHP 7.2 with Laravel as the web framework.  On the front-end we use Webpack, TypeScript and angularjs. You are free to build your project with whatever you want, but we suggest using PHP with a Laravel backend.
 
