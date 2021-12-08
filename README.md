@@ -1,44 +1,43 @@
-# applicant-project
+## **Applicant Project**
 
-Thanks for applying to GoReact! To help us learn more about you and give you an opportunity to show us your stuff, we'd like you to build a simple web application.  We will go over the requirements for what this web application needs to do, but you are free to write it using any tools/technologies/frameworks/languages/whatever you want.  We would encourage you to build it using the technologies we use at GoReact, but if you are uncomfortable with that the burden is on you to make your project easy for us to run.  We want to see how you think, solve problems and build solutions.
+Thanks for applying to GoReact! To help us learn more about you and give you an opportunity to show us your stuff, we&#39;d like you to build a simple web application. We will go over the requirements for what this web application needs to do, but you are free to write it using any tools/technologies/frameworks/languages/whatever you want. We want to see how you think, solve problems and build solutions.
 
-## The Project
-We do a lot with media and files at GoReact, so we'd like you to build a simple file manager app.  We only want to see a few things from this app:
+## **The Project**
 
-* Allow uploading and persisting `.jpg` and `.mp4` files
-* Show a UI where users can upload new files, and show the list of files uploaded so far
-* Provide a way to "preview" the uploaded files.  For images, we want to see the image, and for mp4's, play the video
+The challenge is to build a simple yet effective TODO application. The application must perform the following items
 
-## Tests
-* We do lots and lots of unit, integration, API and end-to-end testing at GoReact. We have a robust automated testing and deployment pipeline. We expect you to write tests for your code in the project. Both for the front end and back end. If you've never written tests before, now is a great time to learn. If you are going to write code at all, it's important to make sure it will continue to work as the code evolves. This is what tests are for. If you don't like writing tests for your work, you may not like working at GoReact as we are required to write tests that fully cover all code that gets merged into our code base.
+- Create a todo
+- Remove a todo
+- Update the status of a todo (toggle its done state)
+- List out all the todos
+- Persist todos between page loads
 
-GoReact is built using PHP 7.2 with Laravel as the web framework.  On the front-end we use Webpack, TypeScript and angularjs. You are free to build your project with whatever you want, but we suggest using PHP with a Laravel backend.
+You must use the following items in your project
 
-Your project should include a `README` that explains how to setup and run your project, as well as how to execute your tests.
+- A frontend framework (We use Angular)
+- A backend API for creating, removing, updating and fetching todos. (We use PHP Laravel)
+- A database for storing the todos. (We use MySQL)
+- Contain a README that explains how to set up and run your project, as well as how to execute your tests.
+- Client and server side unit testing. (We use Jasmine for client testing)
+  - We do lots and lots of unit, integration, API and end-to-end testing at GoReact. We have a robust automated testing and deployment pipeline. We expect you to write tests for your code in the project. Both for the front end and back end. If you&#39;ve never written tests before, now is a great time to learn.
 
-**MAKE SURE YOU TEST YOUR INSTRUCTIONS YOURSELF**.
+**Extra Credit**
 
-You don't want us to tell you your instructions don't work.
+We would also like to see you expand your application in an area that you are passionate about. Here are some examples:
 
-## Extra Requirements
-In addition to the above requirements, we want you to choose at *least* one more from the list below to include in your implementation:
+- Create a downloadable mobile friendly PWA
+- Create end to end tests with something like cypress
+- Show off your css skills by using CSS Grid
+- Work offline
+- Individual accounts with authentication
+- Search for TODOs
 
-* Generate code coverage for your tests, and document how coverage stats can be generated
-* Add a login mechanism, and allow each user to have their own list of files
-* Add a way to associate a title, description and tags with a file and have those changes persist.  Allow for filtering the list of files with search terms that can match these new fields
-* Use S3 or some other cloud-based storage for the files
-* In addition to `mp4` and `jpg`, support `pdf` files, including the ability to render and preview them
-* Use a responsive layout that works and looks great on desktops and mobile devices
-* Add player controls when previewing `mp4` files.  Include controls that allow for:
-   * Skipping forward and back 10 seconds
-   * Pause/Play
-   * Speed up/slow down playback
-* Have a cool idea not on this list? Go ahead and do it but let us know what you decided to do!
+## **Submission**
 
-## Submission
 1. Send us a link to the code you have written (GitHub, GitLab, BitBucket, etc)
 2. Report on how long it took you.
 3. Record yourself demo-ing your project where you walk us through all the functionality and code, including running your tests, and provide us a link to this demo video.
 
-## Timeline
-We expect you to take somewhere between 2-5 hours to complete this and would love to see your project within 3 days of us sending this request to you.  If you need more time because you want to go above and beyond, or if you are just needing more time, just reach out and let us know why.
+## **Timeline**
+
+We expect you to take somewhere between 2-5 hours to complete this and would love to see your project within 3 days of us sending this request to you. If you need more time because you want to go above and beyond, or if you are just needing more time, just reach out and let us know why.
