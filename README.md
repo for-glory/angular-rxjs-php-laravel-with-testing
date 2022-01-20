@@ -1,43 +1,41 @@
-## **Applicant Project**
+# GoReact Applicant Project
 
-Thanks for applying to GoReact! To help us learn more about you and give you an opportunity to show us your stuff, we&#39;d like you to build a simple web application. We will go over the requirements for what this web application needs to do, but you are free to write it using any tools/technologies/frameworks/languages/whatever you want. We want to see how you think, solve problems and build solutions.
+This is the take-home project for Software Engineers applying to work at GoReact. This same project is used for all Software Engineer positions. Make sure you follow the directions for the specific position you're applying for.
 
-## **The Project**
+## Running the project
 
-The challenge is to build a simple yet effective TODO application. The application must perform the following items
+This project requires you to have Docker installed as well as Node.js v16. (or even better if you have `nvm` installed you can use the `.nvmrc` file in this project to set your Node version) To run this project, run the following commands in two separate terminal windows:
 
-- Create a todo
-- Remove a todo
-- Update the status of a todo (toggle its done state)
-- List out all the todos
-- Persist todos between page loads
+```shell
+# Terminal 1 - API
+$ cd api
+$ ./vendor/bin/sail up
 
-You must use the following items in your project
+# Terminal 2 - Client
+$ cd client
+$ npm start
+```
 
-- A frontend framework (We use Angular)
-- A backend API for creating, removing, updating and fetching todos. (We use PHP Laravel)
-- A database for storing the todos. (We use MySQL)
-- Contain a README that explains how to set up and run your project, as well as how to execute your tests.
-- Client and server side unit testing. (We use Jasmine for client testing)
-  - We do lots and lots of unit, integration, API and end-to-end testing at GoReact. We have a robust automated testing and deployment pipeline. We expect you to write tests for your code in the project. Both for the front end and back end. If you&#39;ve never written tests before, now is a great time to learn.
+The API sail command will spin up Laravel and MySQL in docker containers. The API will be available at `localhost:8000`. The Client command will use the Angular CLI to serve the Angular application, which you can access at `localhost:4200`.
 
-**Extra Credit**
+## Running Tests
 
-We would also like to see you expand your application in an area that you are passionate about. Here are some examples:
+Part of your project is fixing broken tests and adding new tests. You can run your API tests like so:
 
-- Create a downloadable mobile friendly PWA
-- Create end to end tests with something like cypress
-- Show off your css skills by using CSS Grid
-- Work offline
-- Individual accounts with authentication
-- Search for TODOs
+```shell
+# API tests
+$ cd api
+$ ./vendor/bin/phpunit # TODO: Probably need to run from within docker container
+```
 
-## **Submission**
+You can run your Client tests in watch mode with the following commands:
 
-1. Send us a link to the code you have written (GitHub, GitLab, BitBucket, etc)
-2. Report on how long it took you.
-3. Record yourself demo-ing your project where you walk us through all the functionality and code, including running your tests, and provide us a link to this demo video.
+```shell
+# Client Tests
+$ cd client
+$ npm test
+```
 
-## **Timeline**
+## Project Requirements
 
-We expect you to take somewhere between 2-5 hours to complete this and would love to see your project within 3 days of us sending this request to you. If you need more time because you want to go above and beyond, or if you are just needing more time, just reach out and let us know why.
+Check the [REQUIREMENTS](./REQUIREMENTS.md) document to get the list of you need to do for your position application.
