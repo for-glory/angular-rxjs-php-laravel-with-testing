@@ -4,15 +4,17 @@ This is the take-home project for Software Engineers applying to work at GoReact
 
 ## Running the project
 
-This project requires you to have Docker installed as well as Node.js v16. (or even better if you have `nvm` installed you can use the `.nvmrc` file in this project to set your Node version) To run this project, run the following commands in two separate terminal windows:
+This project requires you to have Docker installed as well as PHP 8 with Composer and Node.js v16. (or even better if you have `nvm` installed you can use the `.nvmrc` file in this project to set your Node version) To run this project, run the following commands in two separate terminal windows:
 
 ```shell
 # Terminal 1 - API
 $ cd api
+$ composer install
 $ ./vendor/bin/sail up
 
 # Terminal 2 - Client
 $ cd client
+$ npm install
 $ npm start
 ```
 

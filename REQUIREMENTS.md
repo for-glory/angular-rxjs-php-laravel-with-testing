@@ -9,12 +9,14 @@ This document outlines the project requirements for this test. Make sure you do 
 
 ## Part 2 - MID LEVEL, SENIOR, PRINCIPAL, LEAD
 
-- [ ] TODO
+- [ ] Add a way to let the user add and edit the following metadata to your videos: video title, description, and tags.
 
 ## Part 3 - SENIOR, PRINCIPAL, LEAD
 
-- [ ] TODO
+- [ ] Add authentication endpoints (signup & login)
+- [ ] Add Login and Signup views. Make sure the app cannot be accessed without logging in.
 
 ## Part 4 - PRINCIPAL, LEAD
 
-- [ ] TODO
+- [ ] Implement sharing a video with another user by entering their email address.
+- [ ] Users who can access the shared video should not be able to edit that video's information.
