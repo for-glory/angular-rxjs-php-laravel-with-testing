@@ -1,7 +1,14 @@
 <mat-toolbar color="primary">
   <span>Video Manager</span>
   <span class="spacer"></span>
-  <button mat-icon-button matTooltip="Add video">
+  <button mat-icon-button matTooltip="Add video" (click)="openUpload()">
     <mat-icon>add</mat-icon>
   </button>
 </mat-toolbar>
+<main class="videos">
+  <section class="video" *ngFor="let video of videos">
+    <video class="video-player" controls>
+      <source src="http://localhost:3000/videos/{{video.id}}" type="video/mp4">
+    </video>
+  </section>
+</main>
