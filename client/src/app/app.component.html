@@ -8,7 +8,7 @@
 <main class="videos">
   <section class="video" *ngFor="let video of videos">
     <video class="video-player" controls>
-      <source src="http://localhost:3000/videos/{{video.id}}" type="video/mp4">
+      <source src="{{video.path}}" type="video/mp4">
     </video>
   </section>
 </main>

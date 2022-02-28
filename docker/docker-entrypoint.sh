@@ -14,4 +14,12 @@ if [ ! -f config/horizon.php ]; then
     cp config/horizon.php.example config/horizon.php
 fi
 
+# Link Storage for uploads
+if [ ! -f public/storage ]; then
+    php artisan storage:link
+fi
+
+# App key
+php artisan key:generate
+
 exec /usr/sbin/httpd -D FOREGROUND

@@ -20,9 +20,7 @@ RUN yum clean metadata
 RUN yum -y install php php-{pear,pecel-xdebug,process,cgi,common,curl,mbstring,gd,mysqlnd,gettext,bcmath,json,xml,fpm,intl,zip,imap,xdebug,devel,pdo,pgsql}
 
 # Install xdebug and remove stupid "could not connect to client" popping up all the time
-RUN pecl install --nobuild xdebug
-RUN sed -i '/.*xdebug_log_ex(XLOG_CHAN_DEBUG, XLOG_ERR, "NOCON".*/d' $(pecl config-get temp_dir)/xdebug/src/debugger/com.c
-RUN cd $(pecl config-get temp_dir)/xdebug && phpize && ./configure && make && make install
+RUN pecl install xdebug
 
 RUN cd /root && wget https://getcomposer.org/installer && php installer --install-dir=/usr/local/bin --filename=composer && rm -f installer
 RUN mkdir -p /var/run/php/cache && chown apache:apache /var/run/php/cache

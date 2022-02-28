@@ -25,10 +25,10 @@ export class AppComponent implements OnInit {
 
   openUpload() {
     const dialogRef = this.dialog.open(UploadDialogComponent);
-    dialogRef.afterClosed().subscribe((result) => {
+    dialogRef.afterClosed().subscribe((result: UserVideo) => {
       console.log(result);
       if(result) {
-        this.videos = [...this.videos, result[0]];
+        this.videos = [...this.videos, result];
         this.snackbar.open('File successfully uploaded');
       }
     });
