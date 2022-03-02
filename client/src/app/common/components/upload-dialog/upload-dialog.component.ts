@@ -1,7 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { finalize } from 'rxjs';
 import { UploadService } from '../../services/upload/upload.service';
+import { UserVideo } from '../../services/upload/user-video';
 
 @Component({
   selector: 'app-upload-dialog',
@@ -31,11 +33,15 @@ export class UploadDialogComponent implements OnInit {
     }
   }
 
-  async upload() {
+  upload() {
     if(this.file) {
       console.log('UPLOAD VIDEO');
-      const result = await this.uploadService.upload(this.file);
-      this.dialogRef.close(result);
+      this.uploadService.upload(this.file).pipe(
+          // Alert the user that it worked.
+          finalize(() => this.snackbar.open('File successfully uploaded'))
+      ).subscribe((result: UserVideo) => {
+        this.dialogRef.close(result);
+      });
     } else {
       this.snackbar.open('Please select a file to upload');
     }

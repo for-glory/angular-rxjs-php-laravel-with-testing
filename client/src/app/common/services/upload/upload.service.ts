@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { lastValueFrom } from 'rxjs';
+import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { UserVideo } from './user-video';
 
@@ -10,11 +10,11 @@ import { UserVideo } from './user-video';
 export class UploadService {
   constructor(private http: HttpClient) { }
 
-  async getVideos(): Promise<UserVideo[]> {
-    return (await lastValueFrom(this.http.get<UserVideoListResponse>(`${environment.apiBaseUrl}/videos`)));
+  getVideos(): Observable<UserVideo[]> {
+    return this.http.get<UserVideo[]>(`${environment.apiBaseUrl}/videos`);
   }
 
-  async upload(file: File): Promise<UserVideo> {
+  upload(file: File): Observable<UserVideo> {
     console.log(file);
     const formData = new FormData()
     formData.append('video', file, file.name);
@@ -22,6 +22,6 @@ export class UploadService {
     const headers = new HttpHeaders()
       .set('Accept', 'application/json');
 
-    return (await lastValueFrom(this.http.post<UserVideoResponse>(`${environment.apiBaseUrl}/videos`, formData, {headers})));
+    return this.http.post<UserVideo>(`${environment.apiBaseUrl}/videos`, formData, {headers});
   }
 }

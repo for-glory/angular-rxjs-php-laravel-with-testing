@@ -6,7 +6,7 @@
   </button>
 </mat-toolbar>
 <main class="videos">
-  <section class="video" *ngFor="let video of videos">
+  <section class="video" *ngFor="let video of videos$ | async">
     <video class="video-player" controls>
       <source src="{{video.path}}" type="video/mp4">
     </video>
