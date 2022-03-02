@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import { environment } from '../../../../environments/environment';
-import { UserVideo, UserVideoListResponse, UserVideoResponse } from './user-video';
+import { UserVideo } from './user-video';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ export class UploadService {
   constructor(private http: HttpClient) { }
 
   async getVideos(): Promise<UserVideo[]> {
-    return (await lastValueFrom(this.http.get<UserVideoListResponse>(`${environment.apiBaseUrl}/videos`))).data;
+    return (await lastValueFrom(this.http.get<UserVideoListResponse>(`${environment.apiBaseUrl}/videos`)));
   }
 
   async upload(file: File): Promise<UserVideo> {
@@ -22,6 +22,6 @@ export class UploadService {
     const headers = new HttpHeaders()
       .set('Accept', 'application/json');
 
-    return (await lastValueFrom(this.http.post<UserVideoResponse>(`${environment.apiBaseUrl}/videos`, formData, {headers}))).data;
+    return (await lastValueFrom(this.http.post<UserVideoResponse>(`${environment.apiBaseUrl}/videos`, formData, {headers})));
   }
 }
