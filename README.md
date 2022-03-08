@@ -4,7 +4,15 @@ This is the take-home project for Software Engineers applying to work at GoReact
 
 ## Running the project
 
-This project requires you to have Docker installed and Node.js v16. (or even better if you have `nvm` installed you can use the `.nvmrc` file in this project to set your Node version) To run this project, run the following commands in two separate terminal windows:
+This project requires you to have Docker installed and Node.js v16. (or even better if you have `nvm` installed you can use the `.nvmrc` file in this project to set your Node version)
+
+>**Note:** For Windows users, we have noticed that there was a bit of an issue when attempting to run the server startup command without first modifying some files to be CLRF -> LF. You have a number of options to do this: please see https://stackoverflow.com/questions/27810758/how-to-replace-crlf-with-lf-in-a-single-file for various options, which should be enough to cover your situation.
+>
+>The CLRF -> LF conversion should happen with two files in this project:
+>1. docker/docker-entrypoint.sh
+>2. docker/Dockerfile
+
+To run this project, run the following commands in two separate terminal windows:
 
 ```shell
 # Terminal 1 - API
