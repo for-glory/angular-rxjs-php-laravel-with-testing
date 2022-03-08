@@ -1,7 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { finalize } from 'rxjs';
 import { UploadService } from '../../services/upload/upload.service';
 import { UserVideo } from '../../services/upload/user-video';
 
@@ -15,7 +13,6 @@ export class UploadDialogComponent implements OnInit {
   file: File | null = null;
 
   constructor(
-    private snackbar: MatSnackBar,
     private uploadService: UploadService,
     private dialogRef: MatDialogRef<UploadDialogComponent>
   ) {}
@@ -35,14 +32,9 @@ export class UploadDialogComponent implements OnInit {
 
   upload() {
     if(this.file) {
-      this.uploadService.upload(this.file).pipe(
-          // Alert the user that it worked.
-          finalize(() => this.snackbar.open('File successfully uploaded'))
-      ).subscribe((result: UserVideo) => {
+      this.uploadService.upload(this.file).subscribe((result: UserVideo) => {
         this.dialogRef.close(result);
       });
-    } else {
-      this.snackbar.open('Please select a file to upload');
     }
   }
 }

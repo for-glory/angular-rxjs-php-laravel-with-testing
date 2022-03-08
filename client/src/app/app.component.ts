@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { filter, mergeMap, Observable, of, scan, shareReplay, startWith, Subject, tap } from 'rxjs';
@@ -9,7 +9,8 @@ import { UserVideo } from './common/services/upload/user-video';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
   videos$: Observable<UserVideo[]> = of([]);
@@ -41,9 +42,16 @@ export class AppComponent implements OnInit {
     const dialogRef = this.dialog.open<UploadDialogComponent, any, UserVideo>(UploadDialogComponent);
     dialogRef.afterClosed().pipe(
       // Log out what they did
-      tap((result: UserVideo|undefined) => console.log('Dialog result:', result ?? 'canceled')),
+      tap((result: UserVideo|undefined) => {
+        console.log('Dialog result:', result ?? 'canceled');
+      }),
 
-      // Ignore if they close the dialog
+      // Show success message
+      tap(() => {
+        this.snackbar.open('Video uploaded successfully', undefined, { duration: 4000 });
+      }),
+
+      // Ignore if they close/cancel the dialog
       filter((result: UserVideo|undefined): result is UserVideo => result != null)
 
     // No need to unsubscribe because afterClosed emits complete that will clean up this subscription

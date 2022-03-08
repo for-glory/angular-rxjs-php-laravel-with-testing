@@ -33,7 +33,6 @@ describe('UploadDialogComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(UploadDialogComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
