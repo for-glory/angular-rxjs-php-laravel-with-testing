@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { concat, concatMap, filter, finalize, forkJoin, map, mergeMap, NEVER, Observable, of, shareReplay, startWith, switchMap, tap } from 'rxjs';
+import { filter, mergeMap, Observable, of, scan, shareReplay, startWith, Subject, tap } from 'rxjs';
 import { UploadDialogComponent } from './common/components/upload-dialog/upload-dialog.component';
 import { UploadService } from './common/services/upload/upload.service';
 import { UserVideo } from './common/services/upload/user-video';
@@ -12,35 +12,41 @@ import { UserVideo } from './common/services/upload/user-video';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  videos$!: Observable<UserVideo[]>;
+  videos$: Observable<UserVideo[]> = of([]);
+  upload$: Subject<UserVideo> = new Subject<UserVideo>();
 
   constructor(private dialog: MatDialog, private snackbar: MatSnackBar, private upload: UploadService) {}
 
   ngOnInit(): void {
-    this.getVideos();
+    this.refreshVideos();
   }
 
-  getVideos() {
-    this.videos$ = this.upload.getVideos().pipe(shareReplay());
+  refreshVideos() {
+    this.videos$ = this.upload.getVideos().pipe(
+      // Transforms the cold observable to a hot observable, meaning we only do the network request once
+      shareReplay(),
+
+      // Merge that result with any new videos that the user uploads
+      mergeMap((existingVideos: UserVideo[]) => {
+        return this.upload$.pipe(
+          // Scan is a version of reduce() that emits each update
+          scan((videos, newUpload) => videos.concat(newUpload), existingVideos),
+          startWith(existingVideos)
+        );
+      })
+    );
   }
 
   openUpload() {
     const dialogRef = this.dialog.open<UploadDialogComponent, any, UserVideo>(UploadDialogComponent);
-    const dialog$ = dialogRef.afterClosed().pipe(
+    dialogRef.afterClosed().pipe(
       // Log out what they did
       tap((result: UserVideo|undefined) => console.log('Dialog result:', result ?? 'canceled')),
 
       // Ignore if they close the dialog
       filter((result: UserVideo|undefined): result is UserVideo => result != null)
-    );
 
-    // Combine the result with the existing list
-    const newVideos$ = forkJoin([this.videos$, dialog$]).pipe(
-      map(([existingVideos, newVideo]) => existingVideos.concat([newVideo]))
-    );
-
-    // Then update our async pipe.
-    // concat to keep the value of the old list until the new dialog is shown
-    this.videos$ = concat(this.videos$, newVideos$);
+    // No need to unsubscribe because afterClosed emits complete that will clean up this subscription
+    ).subscribe((result: UserVideo) => this.upload$.next(result));
   }
 }
