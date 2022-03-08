@@ -35,7 +35,6 @@ export class UploadDialogComponent implements OnInit {
 
   upload() {
     if(this.file) {
-      console.log('UPLOAD VIDEO');
       this.uploadService.upload(this.file).pipe(
           // Alert the user that it worked.
           finalize(() => this.snackbar.open('File successfully uploaded'))

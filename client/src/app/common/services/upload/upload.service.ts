@@ -15,7 +15,6 @@ export class UploadService {
   }
 
   upload(file: File): Observable<UserVideo> {
-    console.log(file);
     const formData = new FormData()
     formData.append('video', file, file.name);
 

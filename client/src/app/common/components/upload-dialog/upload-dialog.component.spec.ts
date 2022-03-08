@@ -1,6 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { UploadDialogComponent } from './upload-dialog.component';
+import { MatIconModule } from '@angular/material/icon';
+
+const dialogRefMock = {
+	close: jasmine.createSpy('close')
+};
 
 describe('UploadDialogComponent', () => {
   let component: UploadDialogComponent;
@@ -8,7 +16,16 @@ describe('UploadDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UploadDialogComponent ]
+      imports: [
+        HttpClientTestingModule,
+        MatDialogModule,
+        MatIconModule,
+        MatSnackBarModule
+      ],
+      declarations: [ UploadDialogComponent ],
+      providers: [
+        { provide: MatDialogRef, useValue: dialogRefMock }
+      ]
     })
     .compileComponents();
   });
