@@ -6,6 +6,7 @@ import { UploadService } from './upload.service';
 
 describe('UploadService', () => {
   let http: HttpTestingController;
+  let service: UploadService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -13,12 +14,7 @@ describe('UploadService', () => {
         HttpClientTestingModule
       ]
     });
-  });
 
-  let service: UploadService;
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
     service = TestBed.inject(UploadService);
     http = TestBed.inject(HttpTestingController);
   });
