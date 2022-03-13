@@ -18,9 +18,7 @@ class VideoControllerTest extends TestCase
     public function test_get_videos_with_empty_db ()
     {
         $response = $this->get('/api/videos');
-        $response
-            ->assertStatus(200)
-            ->assertJsonPath('data', []);
+        $response->assertStatus(200);
     }
 
     public function test_add_video ()
@@ -36,9 +34,7 @@ class VideoControllerTest extends TestCase
 
         $response->assertStatus(201);
         $response->assertJsonStructure([
-            'data' => [
-                'id', 'path'
-            ]
+            'id', 'path'
         ]);
         $this->assertNotNull($video);
         Storage::assertExists($video->path);
@@ -51,7 +47,7 @@ class VideoControllerTest extends TestCase
         $response = $this->get('/api/videos');
         $response
             ->assertStatus(200)
-            ->assertJsonCount(3, 'data');
+            ->assertJsonCount(3);
     }
 
     public function test_get_single_video ()
@@ -61,9 +57,7 @@ class VideoControllerTest extends TestCase
         $response
             ->assertStatus(200)
             ->assertJsonStructure([
-                'data' => [
-                    'id', 'path'
-                ]
+                'id', 'path'
             ]);
     }
 }
