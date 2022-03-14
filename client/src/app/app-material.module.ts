@@ -8,14 +8,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
 	declarations: [],
-	imports: [
-		CommonModule,
-		MatToolbarModule,
-		MatIconModule,
-		MatButtonModule,
-		MatTooltipModule,
-		MatDialogModule
-	],
+	imports: [CommonModule],
 	exports: [MatToolbarModule, MatIconModule, MatButtonModule, MatTooltipModule, MatDialogModule]
 })
 export class AppMaterialModule {}
