@@ -18,18 +18,10 @@ describe('UploadDialogComponent', () => {
 	beforeEach(async () => {
 		dialogRefMock = jasmine.createSpyObj(['close']);
 		await TestBed.configureTestingModule({
-			imports: [
-				HttpClientTestingModule,
-				MatDialogModule,
-				MatIconModule,
-				MatSnackBarModule
-			],
-			declarations: [ UploadDialogComponent ],
-			providers: [
-				{ provide: MatDialogRef, useValue: dialogRefMock }
-			]
-		})
-		.compileComponents();
+			imports: [HttpClientTestingModule, MatDialogModule, MatIconModule, MatSnackBarModule],
+			declarations: [UploadDialogComponent],
+			providers: [{ provide: MatDialogRef, useValue: dialogRefMock }]
+		}).compileComponents();
 
 		uploadService = TestBed.inject(UploadService);
 	});
@@ -46,7 +38,9 @@ describe('UploadDialogComponent', () => {
 	describe('upload', () => {
 		it('should call the upload.service upload method, close the dialog when finished, if a file was chosen', () => {
 			component.file = new File([''], 'bogusFile', { type: 'text/html' });
-			spyOn(uploadService, 'upload').and.returnValue(of({id: 1, path: 'bogus/path'} as UserVideo));
+			spyOn(uploadService, 'upload').and.returnValue(
+				of({ id: 1, path: 'bogus/path' } as UserVideo)
+			);
 			fixture.detectChanges();
 
 			component.upload();
@@ -57,7 +51,9 @@ describe('UploadDialogComponent', () => {
 
 		it('should do nothing when calling the upload.service upload method if no file was chosen', () => {
 			component.file = null;
-			spyOn(uploadService, 'upload').and.returnValue(of({id: 1, path: 'bogus/path'} as UserVideo));
+			spyOn(uploadService, 'upload').and.returnValue(
+				of({ id: 1, path: 'bogus/path' } as UserVideo)
+			);
 			fixture.detectChanges();
 
 			component.upload();

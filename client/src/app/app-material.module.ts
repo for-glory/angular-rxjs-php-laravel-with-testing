@@ -16,12 +16,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 		MatTooltipModule,
 		MatDialogModule
 	],
-	exports: [
-		MatToolbarModule,
-		MatIconModule,
-		MatButtonModule,
-		MatTooltipModule,
-		MatDialogModule
-	]
+	exports: [MatToolbarModule, MatIconModule, MatButtonModule, MatTooltipModule, MatDialogModule]
 })
 export class AppMaterialModule {}

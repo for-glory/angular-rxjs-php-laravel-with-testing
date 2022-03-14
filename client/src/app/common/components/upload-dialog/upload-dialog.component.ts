@@ -25,7 +25,7 @@ export class UploadDialogComponent implements OnInit {
 
 	fileChange(event: Event) {
 		const files: FileList = (event as any).target?.files;
-		if(files.length > 0) {
+		if (files.length > 0) {
 			this.file = files[0];
 		}
 	}

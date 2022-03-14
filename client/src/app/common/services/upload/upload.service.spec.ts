@@ -10,9 +10,7 @@ describe('UploadService', () => {
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			imports: [
-				HttpClientTestingModule
-			]
+			imports: [HttpClientTestingModule]
 		});
 
 		service = TestBed.inject(UploadService);
@@ -30,9 +28,7 @@ describe('UploadService', () => {
 				expect(videos[0].id).toBe(1);
 				expect(videos[0].path).toBe('bogus/path');
 			});
-			const req = http.expectOne(
-				`${environment.apiBaseUrl}/videos`
-			);
+			const req = http.expectOne(`${environment.apiBaseUrl}/videos`);
 			expect(req.request.method).toBe('GET');
 			req.flush([{ id: 1, path: 'bogus/path' }]);
 			http.verify();
@@ -42,14 +38,11 @@ describe('UploadService', () => {
 	describe('POST', () => {
 		it('should call the correct endpoint when uploading a video', () => {
 			const fileBlob = new File([''], 'bogusFile', { type: 'text/html' });
-			service.upload(fileBlob)
-			.subscribe((video) => {
+			service.upload(fileBlob).subscribe((video) => {
 				expect(video.id).toBe(1);
 				expect(video.path).toBe('bogus/path');
 			});
-			const req = http.expectOne(
-				`${environment.apiBaseUrl}/videos`
-			);
+			const req = http.expectOne(`${environment.apiBaseUrl}/videos`);
 			expect(req.request.method).toBe('POST');
 			req.flush({ id: 1, path: 'bogus/path' });
 			http.verify();

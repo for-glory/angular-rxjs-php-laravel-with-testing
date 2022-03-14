@@ -32,9 +32,7 @@ describe('AppComponent', () => {
 				NoopAnimationsModule,
 				RouterTestingModule
 			],
-			declarations: [
-				AppComponent
-			],
+			declarations: [AppComponent],
 			providers: [
 				{ provide: MatDialog, useValue: dialogMock },
 				{ provide: MatSnackBar, useValue: snackbarMock }
@@ -54,18 +52,22 @@ describe('AppComponent', () => {
 		it('should render title', () => {
 			const fixture = TestBed.createComponent(AppComponent);
 			const compiled = fixture.nativeElement as HTMLElement;
-			expect(compiled.querySelector('.mat-toolbar span')?.textContent).toContain('Video Manager');
+			expect(compiled.querySelector('.mat-toolbar span')?.textContent).toContain(
+				'Video Manager'
+			);
 		});
 
 		it('should correctly get existing videos to display', () => {
 			const fixture = TestBed.createComponent(AppComponent);
 			const component = fixture.componentInstance;
 
-			spyOn(uploadService, 'getVideos').and.returnValue(of([{id: 1, path: 'bogus/path'} as UserVideo]));
+			spyOn(uploadService, 'getVideos').and.returnValue(
+				of([{ id: 1, path: 'bogus/path' } as UserVideo])
+			);
 
 			fixture.detectChanges();
 			component.videos$.subscribe((item) => {
-				expect(item).toEqual([{id: 1, path: 'bogus/path'} as UserVideo]);
+				expect(item).toEqual([{ id: 1, path: 'bogus/path' } as UserVideo]);
 			});
 		});
 	});
