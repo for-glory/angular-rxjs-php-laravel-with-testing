@@ -16,7 +16,7 @@ use Illuminate\Support\Carbon;
  */
 class Video extends Model
 {
-    use HasFactory;
+	use HasFactory;
 
-    protected $table = 'videos';
+	protected $table = 'videos';
 }

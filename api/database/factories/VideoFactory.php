@@ -8,13 +8,13 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class VideoFactory extends Factory
 {
 
-    protected $model = Video::class;
+	protected $model = Video::class;
 
-    public function definition()
-    {
-        return [
-            'id' => $this->faker->numberBetween(1, 100),
-            'path' => 'storage/' . $this->faker->uuid() . '.mp4'
-        ];
-    }
+	public function definition()
+	{
+		return [
+			'id' => $this->faker->numberBetween(1, 100),
+			'path' => 'storage/' . $this->faker->uuid() . '.mp4'
+		];
+	}
 }

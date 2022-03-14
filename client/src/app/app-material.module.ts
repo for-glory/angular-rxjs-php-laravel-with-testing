@@ -7,21 +7,21 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatTooltipModule,
-    MatDialogModule
-  ],
-  exports: [
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatTooltipModule,
-    MatDialogModule
-  ]
+	declarations: [],
+	imports: [
+		CommonModule,
+		MatToolbarModule,
+		MatIconModule,
+		MatButtonModule,
+		MatTooltipModule,
+		MatDialogModule
+	],
+	exports: [
+		MatToolbarModule,
+		MatIconModule,
+		MatButtonModule,
+		MatTooltipModule,
+		MatDialogModule
+	]
 })
 export class AppMaterialModule {}

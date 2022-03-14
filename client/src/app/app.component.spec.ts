@@ -14,93 +14,93 @@ import { UploadService } from './common/services/upload/upload.service';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('AppComponent', () => {
-  let uploadService: UploadService;
-  let dialogMock!: jasmine.SpyObj<MatDialog>;
-  let snackbarMock!: jasmine.SpyObj<MatSnackBar>;
+	let uploadService: UploadService;
+	let dialogMock!: jasmine.SpyObj<MatDialog>;
+	let snackbarMock!: jasmine.SpyObj<MatSnackBar>;
 
-  beforeEach(async () => {
-    dialogMock = jasmine.createSpyObj(['open']);
-    snackbarMock = jasmine.createSpyObj(['open']);
+	beforeEach(async () => {
+		dialogMock = jasmine.createSpyObj(['open']);
+		snackbarMock = jasmine.createSpyObj(['open']);
 
-    await TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule,
-        MatDialogModule,
-        MatIconModule,
-        MatSnackBarModule,
-        MatToolbarModule,
-        NoopAnimationsModule,
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
-      providers: [
-        { provide: MatDialog, useValue: dialogMock },
-        { provide: MatSnackBar, useValue: snackbarMock }
-      ]
-    }).compileComponents();
+		await TestBed.configureTestingModule({
+			imports: [
+				HttpClientTestingModule,
+				MatDialogModule,
+				MatIconModule,
+				MatSnackBarModule,
+				MatToolbarModule,
+				NoopAnimationsModule,
+				RouterTestingModule
+			],
+			declarations: [
+				AppComponent
+			],
+			providers: [
+				{ provide: MatDialog, useValue: dialogMock },
+				{ provide: MatSnackBar, useValue: snackbarMock }
+			]
+		}).compileComponents();
 
-    uploadService = TestBed.inject(UploadService);
-  });
+		uploadService = TestBed.inject(UploadService);
+	});
 
-  describe('init', () => {
-    it('should create the app', () => {
-      const fixture = TestBed.createComponent(AppComponent);
-      const app = fixture.componentInstance;
-      expect(app).toBeTruthy();
-    });
+	describe('init', () => {
+		it('should create the app', () => {
+			const fixture = TestBed.createComponent(AppComponent);
+			const app = fixture.componentInstance;
+			expect(app).toBeTruthy();
+		});
 
-    it('should render title', () => {
-      const fixture = TestBed.createComponent(AppComponent);
-      const compiled = fixture.nativeElement as HTMLElement;
-      expect(compiled.querySelector('.mat-toolbar span')?.textContent).toContain('Video Manager');
-    });
+		it('should render title', () => {
+			const fixture = TestBed.createComponent(AppComponent);
+			const compiled = fixture.nativeElement as HTMLElement;
+			expect(compiled.querySelector('.mat-toolbar span')?.textContent).toContain('Video Manager');
+		});
 
-    it('should correctly get existing videos to display', () => {
-      const fixture = TestBed.createComponent(AppComponent);
-      const component = fixture.componentInstance;
+		it('should correctly get existing videos to display', () => {
+			const fixture = TestBed.createComponent(AppComponent);
+			const component = fixture.componentInstance;
 
-      spyOn(uploadService, 'getVideos').and.returnValue(of([{id: 1, path: 'bogus/path'} as UserVideo]));
+			spyOn(uploadService, 'getVideos').and.returnValue(of([{id: 1, path: 'bogus/path'} as UserVideo]));
 
-      fixture.detectChanges();
-      component.videos$.subscribe((item) => {
-        expect(item).toEqual([{id: 1, path: 'bogus/path'} as UserVideo]);
-      });
-    });
-  });
+			fixture.detectChanges();
+			component.videos$.subscribe((item) => {
+				expect(item).toEqual([{id: 1, path: 'bogus/path'} as UserVideo]);
+			});
+		});
+	});
 
-  describe('upload', () => {
-    it('should show snackbar if upload is completed', fakeAsync(() => {
-      const fixture = TestBed.createComponent(AppComponent);
-      const app = fixture.componentInstance;
+	describe('upload', () => {
+		it('should show snackbar if upload is completed', fakeAsync(() => {
+			const fixture = TestBed.createComponent(AppComponent);
+			const app = fixture.componentInstance;
 
-      // Simulate success on modal
-      const dialogRefMock = jasmine.createSpyObj(['afterClosed']);
-      dialogRefMock.afterClosed.and.returnValue(of({ id: 1, path: 'bogus/path' }));
-      dialogMock.open.and.returnValue(dialogRefMock);
+			// Simulate success on modal
+			const dialogRefMock = jasmine.createSpyObj(['afterClosed']);
+			dialogRefMock.afterClosed.and.returnValue(of({ id: 1, path: 'bogus/path' }));
+			dialogMock.open.and.returnValue(dialogRefMock);
 
-      // Simulate the user pressing the upload button
-      app.openUpload();
+			// Simulate the user pressing the upload button
+			app.openUpload();
 
-      // Should see a snackbar if the user's upload was successful
-      expect(snackbarMock.open).toHaveBeenCalled();
-    }));
+			// Should see a snackbar if the user's upload was successful
+			expect(snackbarMock.open).toHaveBeenCalled();
+		}));
 
-    it('should not show snackbar if upload is cancelled', fakeAsync(() => {
-      const fixture = TestBed.createComponent(AppComponent);
-      const app = fixture.componentInstance;
+		it('should not show snackbar if upload is cancelled', fakeAsync(() => {
+			const fixture = TestBed.createComponent(AppComponent);
+			const app = fixture.componentInstance;
 
-      // Simulate cancel on modal
-      const dialogRefMock = jasmine.createSpyObj(['afterClosed']);
-      dialogRefMock.afterClosed.and.returnValue(of(undefined));
-      dialogMock.open.and.returnValue(dialogRefMock);
+			// Simulate cancel on modal
+			const dialogRefMock = jasmine.createSpyObj(['afterClosed']);
+			dialogRefMock.afterClosed.and.returnValue(of(undefined));
+			dialogMock.open.and.returnValue(dialogRefMock);
 
-      // Simulate the user pressing the upload button
-      app.openUpload();
+			// Simulate the user pressing the upload button
+			app.openUpload();
 
-      // Shouldn't see a snackbar if the user canceled
-      expect(snackbarMock.open).not.toHaveBeenCalled();
-    }));
-  });
+			// Shouldn't see a snackbar if the user canceled
+			expect(snackbarMock.open).not.toHaveBeenCalled();
+		}));
+	});
 });
