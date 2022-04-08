@@ -1,0 +1,9 @@
+/server/uploads
+node_modules
+
+# For users of PHPStorm
+.idea/
+
+# For Mac users
+.DS_Store
+Thumbs.db
