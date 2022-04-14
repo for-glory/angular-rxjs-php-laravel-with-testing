@@ -8,11 +8,13 @@ This document outlines the project requirements for this test. Make sure you do 
 
 - [ ] Fix the failing API tests
 - [ ] Fix the failing Client tests
+- [ ] Prevent uploading files larger than 50MB
 
 ## Part 2 - MID LEVEL, SENIOR, PRINCIPAL, LEAD
 
-- [ ] Add a way to let the user add and edit the following metadata to your videos: video title, description, and tags.
-- [ ] Prevent uploading files larger than 50MB
+- [ ] Add a way to let the user **add** a title and description when uploading a video
+- [ ] Add a way to let the user **edit** their video's title and description
+- [ ] Add a way to let the user **add and edit** tags on their video
 
 ## Part 3 - SENIOR, PRINCIPAL, LEAD
 
