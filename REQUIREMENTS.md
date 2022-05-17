@@ -1,6 +1,6 @@
 # Project Requirements
 
-This document outlines the project requirements for this test. Make sure you do all the requirements for the position you're applying for. If you want to impress us feel free to implement more than what is required, just let us know how long it took you to implement.
+This document outlines the project requirements for this test. Make sure you do all the requirements for the position you're applying for. When you are ready to submit your challenge to us, create a pull request for our repository and notify us when you are done. If you want to impress us feel free to implement more than what is required, just let us know how long it took you to implement.
 
 ### **For each feature you add, you must write tests!**
 
