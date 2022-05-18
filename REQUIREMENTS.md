@@ -1,6 +1,9 @@
 # Project Requirements
 
-This document outlines the project requirements for this test. Make sure you do all the requirements for the position you're applying for. When you are ready to submit your challenge to us, create a pull request for the branch we've created for you and notify us when you are done. If you want to impress us feel free to implement more than what is required, just let us know how long it took you to implement.
+This document outlines the project requirements for this test. Make sure you do all the requirements for the position you're applying for. When you are ready to submit your challenge to us, please do the following:
+1. Make sure your work is contained within a branch.
+2. Create a pull request in the security advisory we've created for you.
+3. Notify us when you're done and let us know how long this took you to complete.
 
 ### **For each feature you add, you must write tests!**
 
