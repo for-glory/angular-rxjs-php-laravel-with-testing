@@ -9,8 +9,8 @@ This document outlines the project requirements for this test. Make sure you do 
 
 ## Part 1 - JUNIOR, MID LEVEL, SENIOR, PRINCIPAL, LEAD
 
-- [ ] Fix the failing API tests
-- [ ] Fix the failing Client tests
+- [ ] Fix the code causing failing API tests
+- [ ] Fix the code causing failing Client tests
 - [ ] Prevent uploading files larger than 50MB
 
 ## Part 2 - MID LEVEL, SENIOR, PRINCIPAL, LEAD

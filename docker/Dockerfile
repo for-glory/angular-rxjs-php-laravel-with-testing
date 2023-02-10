@@ -14,8 +14,8 @@ RUN openssl11 req -newkey rsa:2048 \
 	-addext "subjectAltName = DNS:localhost,IP:127.0.0.1" \
 	-addext "extendedKeyUsage = serverAuth"
 
-# PHP 8.0
-RUN amazon-linux-extras enable php8.0
+# PHP 8.1
+RUN amazon-linux-extras enable php8.1
 RUN yum clean metadata
 RUN yum -y install php php-{pear,pecel-xdebug,process,cgi,common,curl,mbstring,gd,mysqlnd,gettext,bcmath,json,xml,fpm,intl,zip,imap,xdebug,devel,pdo,pgsql}
 
