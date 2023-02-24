@@ -12,19 +12,23 @@ This document outlines the project requirements for this test. Make sure you do 
 - [ ] Fix the code causing failing API tests
 - [ ] Fix the code causing failing Client tests
 - [ ] Prevent uploading files larger than 50MB
+- [ ] All tests passing
 
 ## Part 2 - MID LEVEL, SENIOR, PRINCIPAL, LEAD
 
 - [ ] Add a way to let the user **add** a title and description when uploading a video
 - [ ] Add a way to let the user **edit** their video's title and description
 - [ ] Add a way to let the user **add and edit** tags on their video
+- [ ] New tests added and all tests passing
 
 ## Part 3 - SENIOR, PRINCIPAL, LEAD
 
 - [ ] Add authentication endpoints (signup & login)
 - [ ] Add Login and Signup views. Make sure the app cannot be accessed without logging in.
+- [ ] New tests added and all tests passing
 
 ## Part 4 - PRINCIPAL, LEAD
 
 - [ ] Implement sharing a video with another user by entering their email address.
 - [ ] Users who can access the shared video should not be able to edit that video's information.
+- [ ] New tests added and all tests passing
