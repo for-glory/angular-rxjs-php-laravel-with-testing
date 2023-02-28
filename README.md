@@ -4,7 +4,7 @@ This is the take-home project for Software Engineers applying to work at GoReact
 
 ## Running the project
 
-This project requires you to have Docker installed and Node.js v16. (or even better if you have `nvm` installed you can use the `.nvmrc` file in this project to set your Node version) To run this project, run the following commands in two separate terminal windows:
+This project requires you to use Windows or MacOS (we've seen issues with Linux, but you can try it if you want to) and to have Docker Desktop installed along with Node.js v16 or later. (or even better if you have `nvm` installed you can use the `.nvmrc` file in this project to set your Node version) To run this project, run the following commands in two separate terminal windows:
 
 ```shell
 # Terminal 1 - API
