@@ -46,6 +46,10 @@ $ cd client
 $ npm test
 ```
 
+## Debugging and Backend Tips
+
+See [BACKEND.md](./BACKEND.md)
+
 ## Project Requirements
 
 Check the [REQUIREMENTS](./REQUIREMENTS.md) document to get the list of you need to do for your position application.
