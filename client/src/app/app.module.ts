@@ -6,13 +6,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from './app-material.module';
 import { UploadDialogComponent } from './common/components/upload-dialog/upload-dialog.component';
+import { ModifyDetailsComponent } from './common/components/modify-details/modify-details.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-	declarations: [AppComponent, UploadDialogComponent],
+	declarations: [AppComponent, UploadDialogComponent, ModifyDetailsComponent],
 	imports: [
 		BrowserModule,
 		CommonModule,
