@@ -1,5 +1,15 @@
 <h2 mat-dialog-title>Upload Video</h2>
 <mat-dialog-content>
+	<mat-form-field class="full-width">
+		<mat-label>Title</mat-label>
+		<input [(ngModel)]="title" matInput maxlength="50" placeholder="Title" />
+	</mat-form-field>
+
+	<mat-form-field class="full-width">
+		<mat-label>Description</mat-label>
+		<textarea [(ngModel)]="desc" matInput maxlenght="255" placeholder="Description"></textarea>
+	</mat-form-field>
+	
 	<button *ngIf="!file" class="upload-button" (click)="selectFile()">
 		<mat-icon>cloud_upload</mat-icon>
 		Select File to Upload

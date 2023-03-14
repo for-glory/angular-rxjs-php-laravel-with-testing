@@ -14,9 +14,11 @@ export class UploadService {
 		return this.http.get<UserVideo[]>(`${environment.apiBaseUrl}/videos`);
 	}
 
-	upload(file: File): Observable<UserVideo> {
+	upload(file: File, title: string = '', desc: string = ''): Observable<UserVideo> {
 		const formData = new FormData();
 		formData.append('video', file, file.name);
+		formData.append('title', title);
+		formData.append('desc', desc);
 
 		const headers = new HttpHeaders().set('Accept', 'application/json');
 

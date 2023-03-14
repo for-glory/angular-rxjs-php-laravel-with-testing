@@ -12,6 +12,8 @@ import { UserVideo } from '../../services/upload/user-video';
 export class UploadDialogComponent implements OnInit {
 	@ViewChild('fileInput') fileInput!: ElementRef;
 	file: File | null = null;
+	title: string = '';
+	desc: string = '';
 
 	constructor(
 		private uploadService: UploadService,
@@ -41,7 +43,7 @@ export class UploadDialogComponent implements OnInit {
 	}
 
 	upload() {
-		this.file && this.uploadService.upload(this.file).subscribe((result: UserVideo) => {
+		this.file && this.uploadService.upload(this.file, this.title, this.desc).subscribe((result: UserVideo) => {
 			this.dialogRef.close(result);
 		});
 	}
