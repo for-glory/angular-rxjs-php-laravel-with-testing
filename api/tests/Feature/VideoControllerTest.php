@@ -41,6 +41,19 @@ class VideoControllerTest extends TestCase
 		Mockery::close();
 	}
 
+	public function test_add_video_greater_than_50mb()
+	{
+		Storage::fake('public');
+		$mp4 = UploadedFile::fake()->create('my-video.mp4', 50 * 1024 + 1, 'video/mp4');
+
+		$response = $this->post('/api/videos', [
+			'video' => $mp4
+		]);
+		
+		$response->assertSessionHasErrors(['video']);
+		Mockery::close();
+	}
+
 	public function test_get_videos ()
 	{
 		Video::factory()->count(3)->create();
