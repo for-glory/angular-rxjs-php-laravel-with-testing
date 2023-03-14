@@ -105,4 +105,39 @@ describe('AppComponent', () => {
 			expect(snackbarMock.open).not.toHaveBeenCalled();
 		}));
 	});
+
+	describe('modify', () => {
+		it('should show snackbar if modify is completed', fakeAsync(() => {
+			const fixture = TestBed.createComponent(AppComponent);
+			const app = fixture.componentInstance;
+			const mockVideo = { id: 1, path: 'bogus/path' };
+
+			// Simulate success on modal
+			const dialogRefMock = jasmine.createSpyObj(['afterClosed']);
+			dialogRefMock.afterClosed.and.returnValue(of(mockVideo));
+			dialogMock.open.and.returnValue(dialogRefMock);
+
+			// Simulate the user pressing a video
+			app.modifyDetails(mockVideo);
+
+			// Should see a snackbar if the user's modify was successful
+			expect(snackbarMock.open).toHaveBeenCalled();
+		}));
+
+		it('should not show snackbar if modify is cancelled', fakeAsync(() => {
+			const fixture = TestBed.createComponent(AppComponent);
+			const app = fixture.componentInstance;
+
+			// Simulate cancel on modal
+			const dialogRefMock = jasmine.createSpyObj(['afterClosed']);
+			dialogRefMock.afterClosed.and.returnValue(of(undefined));
+			dialogMock.open.and.returnValue(dialogRefMock);
+
+			// Simulate the user pressing a video
+			app.modifyDetails({ id: 1, path: 'bogus/path' });
+
+			// Shouldn't see a snackbar if the user canceled
+			expect(snackbarMock.open).not.toHaveBeenCalled();
+		}));
+	});
 });

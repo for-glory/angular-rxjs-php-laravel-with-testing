@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { UploadDialogComponent } from './upload-dialog.component';
@@ -10,6 +11,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { UploadService } from '../../services/upload/upload.service';
 import { UserVideo } from '../../services/upload/user-video';
 import { of } from 'rxjs';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 describe('UploadDialogComponent', () => {
 	let component: UploadDialogComponent;
@@ -22,7 +25,7 @@ describe('UploadDialogComponent', () => {
 		dialogRefMock = jasmine.createSpyObj(['close']);
 		snackbarMock = jasmine.createSpyObj(['open']);
 		await TestBed.configureTestingModule({
-			imports: [HttpClientTestingModule, MatDialogModule, MatIconModule, MatSnackBarModule, NoopAnimationsModule],
+			imports: [HttpClientTestingModule, MatDialogModule, MatIconModule, MatSnackBarModule, NoopAnimationsModule, MatFormFieldModule, MatInputModule, FormsModule],
 			declarations: [UploadDialogComponent],
 			providers: [
 				{ provide: MatDialogRef, useValue: dialogRefMock },

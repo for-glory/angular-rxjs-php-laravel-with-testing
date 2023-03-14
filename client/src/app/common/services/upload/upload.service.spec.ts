@@ -48,4 +48,19 @@ describe('UploadService', () => {
 			http.verify();
 		});
 	});
+
+	describe('PUT', () => {
+		it('should call the correct endpoint when modifying a video details', () => {
+			service.modify(1, 'title', 'desc').subscribe((video) => {
+				expect(video.id).toBe(1);
+				expect(video.title).toBe('title');
+				expect(video.desc).toBe('desc');
+				expect(video.path).toBe('bogus/path');
+			});
+			const req = http.expectOne(`${environment.apiBaseUrl}/videos/1?_method=PUT`);
+			expect(req.request.method).toBe('POST');
+			req.flush({ id: 1, title: 'title', desc: 'desc', path: 'bogus/path' });
+			http.verify();
+		});
+	});
 });
