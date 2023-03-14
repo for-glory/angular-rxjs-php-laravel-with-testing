@@ -39,4 +39,16 @@ class VideoController extends Controller
 			'path' => $path,
 		]));
 	}
+
+	public function updateVideo (Request $req, Video $video)
+	{
+		$req->validate([
+			'title' => 'nullable|string|max:50',
+			'desc' => 'nullable|string|max:255',
+		]);
+		$video->title = $req->input('title');
+		$video->desc = $req->input('desc');
+		$video->save();
+		return VideoResource::make($video);
+	}
 }
