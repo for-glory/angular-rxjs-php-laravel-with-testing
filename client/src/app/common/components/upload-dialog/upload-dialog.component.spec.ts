@@ -1,7 +1,9 @@
+import { ElementRef } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { UploadDialogComponent } from './upload-dialog.component';
 import { MatIconModule } from '@angular/material/icon';
@@ -14,13 +16,18 @@ describe('UploadDialogComponent', () => {
 	let fixture: ComponentFixture<UploadDialogComponent>;
 	let uploadService: UploadService;
 	let dialogRefMock!: jasmine.SpyObj<MatDialogRef<UploadDialogComponent, any>>;
+	let snackbarMock!: jasmine.SpyObj<MatSnackBar>;
 
 	beforeEach(async () => {
 		dialogRefMock = jasmine.createSpyObj(['close']);
+		snackbarMock = jasmine.createSpyObj(['open']);
 		await TestBed.configureTestingModule({
-			imports: [HttpClientTestingModule, MatDialogModule, MatIconModule, MatSnackBarModule],
+			imports: [HttpClientTestingModule, MatDialogModule, MatIconModule, MatSnackBarModule, NoopAnimationsModule],
 			declarations: [UploadDialogComponent],
-			providers: [{ provide: MatDialogRef, useValue: dialogRefMock }]
+			providers: [
+				{ provide: MatDialogRef, useValue: dialogRefMock },
+				{ provide: MatSnackBar, useValue: snackbarMock },
+			]
 		}).compileComponents();
 
 		uploadService = TestBed.inject(UploadService);
@@ -33,6 +40,41 @@ describe('UploadDialogComponent', () => {
 
 	it('should create', () => {
 		expect(component).toBeTruthy();
+	});
+
+	describe('file', () => {
+		it('should select file if its size is not greater than 50MB', () => {
+			const buffer = new ArrayBuffer(50 * 1024 * 1024);
+			const mockFile = new File([buffer], '50MB.mp4');
+			const mockEvt = {
+				target: {
+					files: [mockFile],
+				},
+			};
+
+			component.fileChange(mockEvt as any);
+
+			expect(component.file).toBe(mockFile);
+		});
+
+		it('should show snackbar, reset file input element, not select file if its size is greater than 50MB', () => {
+			const buffer = new ArrayBuffer(50 * 1024 * 1024 + 1);
+			const mockFile = new File([buffer], 'greaterThan50MB.mp4');
+			const mockEvt = {
+				target: {
+					files: [mockFile],
+				},
+			};
+
+			component.fileInput = new ElementRef({
+				value: 'test',
+			});
+			component.fileChange(mockEvt as any);
+
+			expect(snackbarMock.open).toHaveBeenCalled();
+			expect(component.fileInput.nativeElement.value).toEqual('');
+			expect(component.file).toBeNull();
+		});
 	});
 
 	describe('upload', () => {
