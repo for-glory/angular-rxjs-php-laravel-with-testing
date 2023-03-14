@@ -55,8 +55,8 @@ export class AppComponent implements OnInit {
 				}),
 
 				// Show success message
-				tap(() => {
-					this.snackbar.open('Video uploaded successfully', undefined, {
+				tap((result: UserVideo | undefined) => {
+					result && this.snackbar.open('Video uploaded successfully', undefined, {
 						duration: 4000
 					});
 				}),
