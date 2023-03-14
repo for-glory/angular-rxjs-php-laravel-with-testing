@@ -24,6 +24,8 @@ class VideoController extends Controller
 	public function saveVideo (Request $req): VideoResource
 	{
 		$req->validate([
+			'title' => 'nullable|string|max:50',
+			'desc' => 'nullable|string|max:255',
 			'video' => [
 				'required',
 				// Size in kilobytes
@@ -31,6 +33,10 @@ class VideoController extends Controller
 			],
 		]);
 		$path = Storage::putFile('storage', $req->file('video'));
-		return VideoResource::make(Video::create(['path' => $path]));
+		return VideoResource::make(Video::create([
+			'title' => $req->input('title'),
+			'desc' => $req->input('desc'),
+			'path' => $path,
+		]));
 	}
 }

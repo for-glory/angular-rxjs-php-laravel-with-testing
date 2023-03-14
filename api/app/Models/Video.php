@@ -22,5 +22,7 @@ class Video extends Model
 
 	protected $fillable = [
 		'path',
+		'title',
+		'desc',
 	];
 }
