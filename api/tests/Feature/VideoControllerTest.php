@@ -73,4 +73,27 @@ class VideoControllerTest extends TestCase
 				'id', 'path'
 			]);
 	}
+
+	public function test_modify_video ()
+	{
+		$video = Video::factory()->create();
+		
+		$response = $this->put("/api/videos/{$video->getKey()}", [
+			'title' => 'title',
+			'desc' => 'desc',
+		]);
+
+		/** @var Video $res */
+		$res = $response->baseResponse->original;
+
+		$response->assertStatus(200);
+		$response->assertJsonStructure([
+			'id', 'title', 'desc', 'path'
+		]);
+
+		$this->assertNotNull($res);
+		$this->assertEquals($video->getKey(), $res->id);
+		$this->assertEquals('title', $res->title);
+		$this->assertEquals('desc', $res->desc);
+	}
 }
