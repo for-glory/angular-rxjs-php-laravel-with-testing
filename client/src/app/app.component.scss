@@ -12,6 +12,16 @@
 
 .video {
 	display: flex;
+	flex-direction: column;
+}
+
+.video:hover {
+	background-color: gray;
+	cursor: pointer;
+}
+
+.title, .desc {
+	margin: 5px 10px;
 }
 
 .video-player {

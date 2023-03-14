@@ -6,7 +6,9 @@
 	</button>
 </mat-toolbar>
 <main class="videos">
-	<section class="video" *ngFor="let video of videos$ | async">
+	<section class="video" *ngFor="let video of videos$ | async" (click)="modifyDetails(video)">
+		<div class="title">Title: {{ video.title }}</div>
+		<div class="desc">Description: {{ video.desc }}</div>
 		<video class="video-player" controls>
 			<source src="{{ video.path }}" type="video/mp4" />
 		</video>
