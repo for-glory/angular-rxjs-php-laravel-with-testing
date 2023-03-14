@@ -24,4 +24,15 @@ export class UploadService {
 
 		return this.http.post<UserVideo>(`${environment.apiBaseUrl}/videos`, formData, { headers });
 	}
+
+	modify(id: number, title: string = '', desc: string = ''): Observable<UserVideo> {
+		const formData = new FormData();
+		formData.append('title', title);
+		formData.append('desc', desc);
+
+		const headers = new HttpHeaders().set('Accept', 'application/json');
+
+		// Used post method with _method=PUT as putting form data doesn't work.
+		return this.http.post<UserVideo>(`${environment.apiBaseUrl}/videos/${id}?_method=PUT`, formData, { headers });
+	}
 }
