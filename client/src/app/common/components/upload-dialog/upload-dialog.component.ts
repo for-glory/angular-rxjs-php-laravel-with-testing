@@ -28,6 +28,7 @@ export class UploadDialogComponent implements OnInit {
 	fileChange(event: Event) {
 		const files: FileList = (event as any).target?.files;
 		if (files.length > 0) {
+			// Size in bytes
 			if (files[0].size > 50 * 1024 * 1024) {
 				this.snackbar.open('Uploading files larger than 50MB not allowed', undefined, {
 					duration: 4000,
